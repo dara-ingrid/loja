@@ -10,8 +10,8 @@
 			<property name="javax.persistence.jdbc.driver"
 				value="org.h2.driver" />
 			<property name="javax.persistence.jdbc.url"
-				value="h2:mem:loja" />
-			<property name="javax.persistence.jdbc.username" value="sa" />
+				value="jdbc:h2:mem:loja" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="javax.persistence.jdbc.password" value="" />
 
 			<property name="hibernate.dialect"

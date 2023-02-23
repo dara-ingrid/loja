@@ -4,23 +4,25 @@ import java.math.BigDecimal;
 
 import javax.persistence.EntityManager;
 
+import br.com.alura.loja.dao.CategoriaDAO;
 import br.com.alura.loja.dao.ProdutoDAO;
+import br.com.alura.loja.modelo.Categoria;
 import br.com.alura.loja.modelo.Produto;
 import br.com.alura.loja.util.JPAUtil;
 
 public class CadastroDeProduto {
 
 	public static void main(String[] args) {
-		Produto celular = new Produto();
-		celular.setNome("Xiaomi");
-		celular.setDescricao("Note 11 128GB 6GB RAM Global e Desbloqueado Graphite Gray ");
-		celular.setPreco(new BigDecimal("1895.99"));
+		Categoria celulares = new Categoria("CCELULARES");
+		Produto celular = new Produto("Xiaomi", "Note 11 128GB 6GB RAM Global e Desbloqueado Graphite Gray ", new BigDecimal("1800"), celulares);
 		
 		EntityManager em = JPAUtil.getEntityManager();
-		ProdutoDAO dao = new ProdutoDAO(em);
+		ProdutoDAO produtoDao = new ProdutoDAO(em);
+		CategoriaDAO categoriaDao = new CategoriaDAO(em);
 
 		em.getTransaction().begin();
-		dao.cadastrar(celular);
+		categoriaDao.cadastrar(celulares);
+		produtoDao.cadastrar(celular);
 		em.getTransaction().commit();
 		em.close();
 

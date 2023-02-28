@@ -37,11 +37,14 @@ public class CadastroDePedido {
 		
 		em.getTransaction().commit();
 		
+		BigDecimal totalVendido = pedidoDao.valorTotalVendido();
+		System.out.println("Vendido: " + totalVendido);
+		
 	}
 	
 	private static void popularBancoDeDados() {
 		Categoria celulares = new Categoria("CELULARES");
-		Produto celular = new Produto("Xiaomi Redmi", "Muito legal", new BigDecimal("800"), celulares );
+		Produto celular = new Produto("Xiaomi Redmi", "Muito legal", new BigDecimal("800.00"), celulares );
 		Cliente cliente = new Cliente("Dara", "789456");
 		
 		EntityManager em = JPAUtil.getEntityManager();

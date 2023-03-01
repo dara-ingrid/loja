@@ -34,6 +34,9 @@ public class CadastroDeProduto {
 		BigDecimal precoProduto = produtoDao.buscarPrecoPorNomeDoProduto("Xiaomi Redmi");
 		System.out.println(precoProduto);
 		
+		List<Produto> buscaDinamica = produtoDao.buscaPorParametros(null, new BigDecimal("800"), null);
+		System.out.println(buscaDinamica);
+		
 	}
 
 	private static void cadastrarProduto() {
